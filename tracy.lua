@@ -3,7 +3,7 @@ local M = {}
 -- You can disable without remove calling code
 local Enabled = true
 if not Enabled then
-  local EmptyFunc = function() end
+  local EmptyFunc = function() return M end
   M.start = EmptyFunc
   M.stop = EmptyFunc
   M.mark_frame = EmptyFunc
@@ -132,7 +132,7 @@ end
 
 function M.message(txt)
   if not IsConnected then return M end
-  Lib.___tracy_emit_message(txt, #txt, 0);
+  Lib.___tracy_emit_message(txt, #txt, 0)
   return M
 end
 
